@@ -1,0 +1,52 @@
+{% extends 'template.html' %}
+{% block contenidohija %}
+	<main>
+		<!--Acerca de - contenido -->
+		<div class="container">
+			<div class="row contenedor">
+				<div class="col">
+					<h2 class="titulo">Ingresos de Proveedor </h2>
+					<div class="row contacto justify-content-center align-items-center">
+                        <form method="POST">
+                            {% csrf_token %}
+                         <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-6 col-form-label col-form-label-sm">Nombre del Proveedor:</label>
+                            <div class="col-sm-6">
+                               {{form.proveedornombre }}
+                            </div>
+                         </div>
+                            <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-6 col-form-label col-form-label-sm">Cedula:</label>
+                            <div class="col-sm-6">
+                               {{form.proveedorcedula}}
+                            </div>
+                         </div>
+                            <div class="form-group row">
+                            <label for="colFormLabelSm" class="col-sm-6 col-form-label col-form-label-sm">Telefono:</label>
+                            <div class="col-sm-6">
+                               {{form.proveedortelefono}}
+                            </div>
+                         </div>
+                         <div class="form-group row">
+                            <label for="colFormLabel" class="col-sm-6 col-form-label">Estado:</label>
+                            <div class="col-sm-6">
+                               {{form.proveedoranulado}}
+                            </div>
+                        </div>
+                       <button type="submit" class="btn btn-info btn-lg btn-responsive" id="search">
+                       <span class="glyphicon glyphicon-search"></span> Guardar</button>
+                       <a  class="btn btn-info btn-lg btn-responsive"   href="{% url 'proveedorlistar' %}"> cancelar </a>
+</form>
+
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+{% endblock%}
+
+

@@ -1,0 +1,42 @@
+{% extends 'template.html' %}
+{% block contenidohija %}
+	<main>
+		<!--Acerca de - contenido -->
+		<div class="container">
+			<div class="row contenedor">
+				<div class="col">
+					<h2 class="titulo">Mantenimientos de Grupo</h2>
+
+					<div class="row justify-content-center">
+							<a href="{% url 'grupoguardar' %}" class="btn btn-success mr-3" target="modificar"><span class="fa fa-print"></span>Guardar&nbsp;</a>
+							<a href="{% url 'grupospdf' %}" class="btn btn-success mr-3" target="print"><span class="fa fa-print"></span> Imprimir</a>
+
+    						<TABLE class="table table-bordered" BORDER="1">
+								<TR>
+									<TH>Id</TH>
+									<TH>Nombre Del Grupo</TH>
+        							<TH>Anulado</TH>
+									<TH>Imprimir</TH>
+									<TH>Modificar</TH>
+								</TR>
+									{% for presenta in object_list %}
+										<TR>
+											<TD>{{ presenta.id }}</TD>
+											<TD>{{ presenta.gruponombre }}</TD>
+											<TD>{{ presenta.grupoanulado }}</TD>
+
+                                            <td><a href="{% url 'grupoindividual' presenta.id  %}" class="btn btn-warning" target="print"><span class="fa fa-print"></span> Imprimir</a></td>
+                                            <td><a href="{% url 'grupomodificar' presenta.id %}"  class="btn btn-primary" target="modificar"><span class="fa fa-print"></span> Modificar</a></td>
+                                        </TR>
+     								{% endfor %}
+							</TABLE>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+{% endblock %}

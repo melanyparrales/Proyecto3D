@@ -1,0 +1,13 @@
+html{
+    background: url("../img/fondo.png") no-repeat;
+	background-size: cover;
+    min-height: 100%;
+}
+
+body{
+    background:none;
+}
+
+#advanced-search-form{
+
+}

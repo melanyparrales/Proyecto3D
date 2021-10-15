@@ -1,0 +1,52 @@
+{% extends 'template.html' %}
+{% block contenidohija %}
+	<main>
+		<!--Acerca de - contenido -->
+		<div class="container">
+			<div class="row contenedor">
+				<div class="col">
+					<h2 style="color:#3D83B8" class="titulo">Mantenimientos de Productos</h2>
+
+					<div class="row justify-content-center">
+							<a href="{% url 'productoguardar' %}" class="btn btn-success mr-3" target="modificar"><span class="fa fa-print"></span>Guardar&nbsp;</a>
+							<a href="{% url 'productospdf' %}" class="btn btn-success mr-3" target="print"><span class="fa fa-print"></span> Imprimir</a>
+
+    						<TABLE class="table table-bordered" BORDER="1">
+								<TR>
+									<TH>Id</TH>
+									<TH>Nombre del Grupo</TH>
+                                    <TH>Apellidos y Nombres</TH>
+                                    <TH>Precio</TH>
+                                    <TH>Codigo</TH>
+                                    <TH>Existencia</TH>
+
+                                    <TH>Activado/Anulado</TH>
+                                    <TH>Imprimir</TH>
+                                    <TH>Modificar</TH>
+                                </TR>
+									{% for presenta in object_list %}
+										<TR>
+                                            <TD>{{ presenta.id }}</TD>
+			                                <TD>{{ presenta.productogrupo.gruponombre }}</TD>
+			                                <TD>{{ presenta.productonombre }}</TD>
+                                            <TD>{{ presenta.productopreciovta}}</TD>
+			                                <TD>{{ presenta.productocodigo }}</TD>
+			                                <TD>{{ presenta.productoexistencia  }}</TD>
+			                                <TD>{{ presenta.productoanulado }}</TD>
+
+		                                    <td><a href="{% url 'productoindividual' presenta.id  %}" class="btn btn-warning" target="print"><span class="fa fa-print"></span> Imprimir</a></td>
+			                                <td><a href="{% url 'productomodificar' presenta.id %}" class="btn btn-primary" target="modificar"><span class="fa fa-print"></span> Modificar</a></td>
+
+	                                    </TR>
+     								{% endfor %}
+							</TABLE>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+{% endblock %}

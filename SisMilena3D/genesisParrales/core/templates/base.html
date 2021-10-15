@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <title>
+        {% block TITULOHIJA%} {% endblock %}
+    </title>
+    {% load static %}
+
+    <link rel="stylesheet" href= "{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/fontello.css' %}">
+	<link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+</head>
+<body>
+<ul id=”button”>
+     <li><a href="{% url 'grupolistar' %}">Grupo</a></li>
+     <li><a href="{% url 'productolistar' %}">Producto</a></li>
+     <li><a href="{% url 'proveedorlistar' %}">Proveedor</a></li>
+     <li><a href="{% url 'clientelistar' %}">Cliente</a></li>
+     <li><a href="">Compras</a></li>
+     <li><a href="">Venta</a></li>
+
+ </ul>
+{% block contenidohija %}
+
+{% endblock %}
+
+	<script src="{% static 'core/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'core/js/popper.min.js' %}"></script>
+	<script src="{% static 'core/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'core/js/scripts.js' %}"></script>
+
+
+</body>
+</html>

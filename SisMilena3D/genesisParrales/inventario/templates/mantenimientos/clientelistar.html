@@ -1,0 +1,51 @@
+{% extends 'template.html' %}
+{% block contenidohija %}
+	<main>
+		<!--Acerca de - contenido -->
+		<div class="container">
+			<div class="row contenedor">
+				<div class="col">
+					<h2 class="titulo">Mantenimientos de Clientes</h2>
+
+					<div class="row justify-content-center">
+							<a href="{% url 'clienteguardar' %}" class="btn btn-success mr-3" target="modificar"><span class="fa fa-print"></span>Guardar&nbsp;</a>
+							<a href="{% url 'clientespdf' %}" class="btn btn-success mr-3" target="print"><span class="fa fa-print"></span> Imprimir</a>
+
+
+                            <TABLE class="table table-bordered" BORDER="1">
+								<TR>
+									<TH>Id</TH>
+                                    <TH>Apellidos y Nombres</TH>
+                                    <TH>Cedula</TH>
+                                    <TH>Telefono</TH>
+
+                                    <TH>Activado/Anulado</TH>
+                                    <TH>Modificar</TH>
+                                    <TH>Imprimir</TH>
+
+
+                                </TR>
+                                    {% for presenta in object_list %}
+                                         <TR>
+                                             <TD>{{ presenta.id}}</TD>
+                                             <TD>{{ presenta.clientenombre }}</TD>
+                                             <TD>{{ presenta.clientecedula }}</TD>
+                                             <TD>{{ presenta.clientetelefono }}</TD>
+                                             <TD>{{ presenta.clienteanulado }}
+
+                                             <td><a href="{% url 'clienteindividual' presenta.id  %}" class="btn btn-warning" target="print"><span class="fa fa-print"></span> Imprimir</a></td>
+                                             <td><a href="{% url 'clientemodificar' presenta.id %}" class="btn btn-primary" target="modificar"><span class="fa fa-print"></span> Modificar</a></td>
+
+                                         </TR>
+     								{% endfor %}
+							</TABLE>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+{% endblock %}

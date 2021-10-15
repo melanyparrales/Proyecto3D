@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+{% block contenidohija %}
+{% load static %}
+	<main>
+		<!--Acerca de - contenido -->
+		<div class="container">
+			<div class="row contenedor">
+				<div class="col">
+					<h2 class="titulo">MILENA </h2>
+
+				</div>
+                <!--imagen de Cabecera -->
+ 			  <div class="row slider">
+				<div class="col">
+					<img src="{% static 'core/img/slide1.jpg' %}" class="w-100" alt="Responsive image">
+				</div>
+			  </div>
+			</div>
+		</div>
+	</main>
+
+{% endblock %}
